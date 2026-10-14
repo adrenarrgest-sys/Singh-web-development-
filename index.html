@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Singh Web Development | Website Designer & Developer</title>
+<meta name="description" content="Singh Web Development builds fast, mobile-friendly websites for hotels, restaurants, salons, shops and small businesses in India.">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='black'/><text x='50' y='68' font-size='56' text-anchor='middle' fill='%23d4af37' font-family='Georgia'>S</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#000;--surface:#111010;--surface2:#1a1814;--line:#3a3220;
+  --gold:#d4af37;--gold-soft:#f1d98a;--gold-deep:#9c7a1c;
+  --text:#f3ede0;--muted:#b3a98f;
+  --serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --sans:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --gold-grad:linear-gradient(135deg,#f1d98a,#d4af37 45%,#9c7a1c);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{background:var(--black);color:var(--text);font-family:var(--sans);line-height:1.65;font-size:16px;-webkit-text-size-adjust:100%}
+img,svg{max-width:100%}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.wrap{width:min(1120px,92%);margin-inline:auto}
+section{padding:92px 0}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.1}
+h2{font-size:clamp(2rem,5vw,3.1rem);margin-bottom:14px}
+.lead{color:var(--muted);max-width:60ch;margin-bottom:46px}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:14px 26px;border-radius:999px;font-weight:700;font-size:.97rem;border:1px solid var(--gold);cursor:pointer;font-family:inherit;transition:transform .2s,box-shadow .2s,background .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-gold{background:var(--gold-grad);color:#000;box-shadow:0 8px 28px rgba(212,175,55,.25)}
+.btn-gold:hover{box-shadow:0 12px 34px rgba(212,175,55,.4)}
+.btn-line{background:transparent;color:var(--gold-soft)}
+.btn-line:hover{background:rgba(212,175,55,.1)}
+.btn svg{width:19px;height:19px;fill:currentColor}
+
+/* header */
+header{position:fixed;inset:0 0 auto 0;z-index:50;background:rgba(0,0,0,.82);backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .3s}
+header.scrolled{border-color:var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{font-family:var(--serif);font-size:1.45rem;font-weight:700;color:var(--gold-soft);display:flex;align-items:center;gap:10px}
+.logo i{font-style:normal;display:grid;place-items:center;width:34px;height:34px;border-radius:9px;background:var(--gold-grad);color:#000;font-size:1.3rem}
+nav ul{display:flex;gap:30px;list-style:none;align-items:center}
+nav a{color:var(--muted);font-size:.95rem;transition:color .2s}
+nav a:hover{color:var(--gold-soft)}
+.menu-btn{display:none;background:none;border:1px solid var(--line);color:var(--gold-soft);width:44px;height:44px;border-radius:10px;font-size:1.3rem;cursor:pointer}
+
+/* hero */
+.hero{min-height:100vh;display:flex;align-items:center;padding:130px 0 80px;position:relative;overflow:hidden;
+  background:radial-gradient(ellipse at 75% 20%,rgba(212,175,55,.18),transparent 55%),radial-gradient(ellipse at 10% 90%,rgba(212,175,55,.08),transparent 50%),#000}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:50px;align-items:center}
+.hero h1{font-size:clamp(2.7rem,7vw,5.2rem);margin-bottom:22px}
+.gold-text{background:linear-gradient(100deg,#9c7a1c 10%,#f1d98a 40%,#d4af37 55%,#9c7a1c 90%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 6s ease-in-out infinite alternate}
+@keyframes shine{to{background-position:100% 0}}
+.hero p{color:var(--muted);font-size:1.12rem;max-width:52ch;margin-bottom:34px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px}
+.trust{margin-top:34px;display:flex;flex-wrap:wrap;gap:10px 22px;color:var(--muted);font-size:.92rem}
+.trust span::before{content:"\2713";color:var(--gold);margin-right:8px;font-weight:700}
+.load{opacity:0;transform:translateY(22px);animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards}
+.load:nth-child(2){animation-delay:.12s}.load:nth-child(3){animation-delay:.24s}.load:nth-child(4){animation-delay:.36s}.load:nth-child(5){animation-delay:.48s}
+@keyframes rise{to{opacity:1;transform:none}}
+
+/* hero device mock */
+.device{position:relative;justify-self:center;width:min(330px,80%);animation:float 6s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-12px)}}
+.phone{border:2px solid var(--gold);border-radius:34px;padding:12px;background:var(--surface);box-shadow:0 30px 80px rgba(212,175,55,.2)}
+.screen{border-radius:24px;overflow:hidden;background:#0a0a0a;aspect-ratio:9/17;display:flex;flex-direction:column}
+.s-top{height:34%;background:linear-gradient(160deg,#3a2e10,#d4af37 130%);display:flex;align-items:flex-end;padding:14px;font-family:var(--serif);font-size:1.35rem;color:#000;font-weight:700;line-height:1.1}
+.s-body{padding:14px;display:grid;gap:10px}
+.s-body b{display:block;height:9px;border-radius:5px;background:var(--line)}
+.s-body b:nth-child(2){width:80%}.s-body b:nth-child(3){width:55%}
+.s-btn{margin-top:6px;height:34px;border-radius:999px;background:var(--gold-grad)}
+.s-cards{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 14px 14px;margin-top:auto}
+.s-cards i{height:58px;border-radius:12px;background:var(--surface2);border:1px solid var(--line)}
+
+/* services */
+.grid{display:grid;gap:20px}
+.services{grid-template-columns:repeat(3,1fr)}
+.card{background:linear-gradient(160deg,var(--surface2),var(--surface));border:1px solid var(--line);border-radius:18px;padding:30px;transition:border-color .25s,transform .25s}
+.card:hover{border-color:var(--gold);transform:translateY(-4px)}
+.ico{width:50px;height:50px;border-radius:13px;display:grid;place-items:center;background:rgba(212,175,55,.12);border:1px solid var(--gold-deep);margin-bottom:18px}
+.ico svg{width:26px;height:26px;stroke:var(--gold);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.card h3{font-size:1.6rem;margin-bottom:8px;color:var(--gold-soft)}
+.card p{color:var(--muted);font-size:.97rem}
+
+/* portfolio */
+.alt{background:var(--surface)}
+.portfolio{grid-template-columns:repeat(3,1fr)}
+.demo{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--black)}
+.thumb{aspect-ratio:16/11;padding:16px;display:flex;flex-direction:column;gap:9px;position:relative}
+.thumb .bar{height:8px;width:100%;display:flex;gap:5px}.thumb .bar i{width:8px;height:8px;border-radius:50%;background:rgba(0,0,0,.45)}
+.thumb h4{font-family:var(--serif);font-size:1.5rem;color:#000;line-height:1.05;margin-top:auto}
+.thumb small{color:rgba(0,0,0,.7);font-size:.8rem;font-weight:500}
+.t1{background:linear-gradient(150deg,#f1d98a,#9c7a1c)}
+.t2{background:linear-gradient(150deg,#d4af37,#5a4510)}
+.t3{background:linear-gradient(150deg,#e8cf7c,#7a5f16)}
+.demo-info{padding:20px 22px}
+.tag{display:inline-block;font-size:.78rem;font-weight:700;color:var(--gold-soft);border:1px solid var(--gold-deep);padding:3px 11px;border-radius:999px;margin-bottom:10px}
+.demo-info h3{font-size:1.4rem;margin-bottom:6px}
+.demo-info p{color:var(--muted);font-size:.93rem}
+.note{margin-top:26px;color:var(--muted);font-size:.93rem;border-left:2px solid var(--gold);padding-left:14px;max-width:70ch}
+
+/* pricing */
+.pricing{grid-template-columns:repeat(3,1fr);align-items:stretch}
+.plan{display:flex;flex-direction:column}
+.plan.featured{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold),0 24px 60px rgba(212,175,55,.14)}
+.price{font-family:var(--serif);font-size:3rem;color:var(--gold);margin:10px 0 2px;font-weight:700;line-height:1}
+.price small{font-family:var(--sans);font-size:.88rem;color:var(--muted);font-weight:400;margin-right:6px}
+.plan ul{list-style:none;margin:20px 0 28px;display:grid;gap:10px;color:var(--muted);font-size:.95rem}
+.plan li::before{content:"\2713";color:var(--gold);margin-right:10px;font-weight:700}
+.plan .btn{margin-top:auto;justify-content:center}
+.fine{margin-top:26px;color:var(--muted);font-size:.9rem;max-width:75ch}
+
+/* about */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.about p{color:var(--muted);margin-bottom:16px}
+.points{display:grid;gap:16px}
+.point{padding:20px 22px;border:1px solid var(--line);border-radius:16px;background:var(--surface2)}
+.point h3{font-size:1.35rem;color:var(--gold-soft);margin-bottom:4px}
+.point p{margin:0;font-size:.94rem}
+
+/* contact */
+.contact{text-align:center;background:radial-gradient(ellipse at 50% 0,rgba(212,175,55,.16),transparent 60%),#000}
+.contact .lead{margin-inline:auto}
+.cta-row{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-bottom:46px}
+form{max-width:560px;margin:0 auto;text-align:left;display:grid;gap:14px;padding:30px;border:1px solid var(--line);border-radius:20px;background:var(--surface)}
+label{font-size:.9rem;color:var(--muted)}
+input,select,textarea{width:100%;margin-top:6px;padding:13px 14px;border-radius:12px;border:1px solid var(--line);background:var(--black);color:var(--text);font:inherit}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--gold)}
+textarea{min-height:100px;resize:vertical}
+.form-note{font-size:.85rem;color:var(--muted);text-align:center}
+
+footer{border-top:1px solid var(--line);padding:30px 0 90px;color:var(--muted);font-size:.9rem;text-align:center}
+.fab{position:fixed;right:18px;bottom:18px;z-index:60;width:58px;height:58px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.6)}
+.fab svg{width:30px;height:30px;fill:#fff}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s,transform .7s}
+.reveal.in{opacity:1;transform:none}
+
+@media(max-width:900px){
+  .services,.portfolio,.pricing{grid-template-columns:1fr 1fr}
+  .hero .wrap,.about{grid-template-columns:1fr}
+  .device{display:none}
+}
+@media(max-width:700px){
+  section{padding:68px 0}
+  .menu-btn{display:block}
+  nav ul{position:absolute;top:70px;left:0;right:0;background:#000;flex-direction:column;padding:10px 0 20px;border-bottom:1px solid var(--line);display:none;gap:0}
+  nav ul.open{display:flex}
+  nav li{width:100%;text-align:center}
+  nav li a{display:block;padding:14px}
+  .services,.portfolio,.pricing{grid-template-columns:1fr}
+  .hero{min-height:auto}
+  .btn{width:100%;justify-content:center}
+  .cta-row .btn,.hero-actions .btn{width:100%}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .load,.reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<header id="top">
+  <div class="wrap nav">
+    <a href="#home" class="logo"><i>S</i>Singh Web Development</a>
+    <nav aria-label="Main">
+      <button class="menu-btn" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+      <ul id="menu">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a class="btn btn-gold" style="padding:10px 22px;color:#000" href="#contact">Get a free quote</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="wrap">
+    <div>
+      <h1 class="load">Your business deserves a website that <span class="gold-text">looks as good as it works.</span></h1>
+      <p class="load">Singh Web Development designs fast, mobile-friendly websites for hotels, restaurants, salons, shops and small businesses across India, so more customers can find you, trust you and contact you.</p>
+      <div class="hero-actions load">
+        <a class="btn btn-gold" href="https://wa.me/YOUR_NUMBER_HERE?text=Hi%2C%20I%20want%20a%20website%20for%20my%20business." target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.300 1.200-1.800 1.200-.5.1-1 .2-3.200-.7-2.700-1.100-4.400-3.800-4.500-4-.1-.2-1.100-1.400-1.100-2.700s.7-1.900.9-2.200c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.500l.8 2c.1.200.1.300 0 .5l-.3.400-.4.500c-.1.100-.3.300-.1.600.2.300.8 1.300 1.700 2.100 1.100 1 2.100 1.300 2.400 1.500.3.100.5.100.6-.1l.9-1.100c.2-.3.400-.2.600-.1l2 1c.3.100.5.200.5.300.1.200.1.700-.1 1.300z"/></svg>Chat on WhatsApp</a>
+        <a class="btn btn-line" href="#portfolio">See demo projects</a>
+      </div>
+      <div class="trust load"><span>Works on every phone</span><span>Fast loading</span><span>Prices in rupees</span></div>
+    </div>
+    <div class="device" aria-hidden="true">
+      <div class="phone"><div class="screen">
+        <div class="s-top">Your Business<br>Name Here</div>
+        <div class="s-body"><b></b><b></b><b></b><div class="s-btn"></div></div>
+        <div class="s-cards"><i></i><i></i><i></i><i></i></div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <h2 class="reveal">Websites built for your kind of business</h2>
+    <p class="lead reveal">Every website is designed for phones first, because most of your customers will open it on one.</p>
+    <div class="grid services">
+      <article class="card reveal"><div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg></div><h3>Business websites</h3><p>A clear, professional website with your services, photos, location and contact details in one place.</p></article>
+      <article class="card reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 21V8l9-5 9 5v13M9 21v-6h6v6M3 21h18"/></svg></div><h3>Hotel websites</h3><p>Show your rooms, amenities and gallery, and let guests enquire or book through call and WhatsApp.</p></article>
+      <article class="card reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M7 3v8a2 2 0 0 0 2 2v8M5 3v6M9 3v6M17 3c-2 2-2.500 5-2.500 8H17v10"/></svg></div><h3>Restaurant websites</h3><p>Display your menu, opening hours and photos, with easy table enquiry and food order buttons.</p></article>
+      <article class="card reveal"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.500 8.500 20 20M8.500 15.500 20 4"/></svg></div><h3>Salon websites</h3><p>List services and prices, show your work, and let clients request appointments in seconds.</p></article>
+      <article class="card reveal"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div><h3>Portfolio websites</h3><p>For freelancers, photographers and professionals who want a personal site that shows their best work.</p></article>
+      <article class="card reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4zM4 10h16M9 10v9"/></svg></div><h3>Landing pages</h3><p>A single focused page for an offer, event or new launch, built to get enquiries.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="portfolio" class="alt">
+  <div class="wrap">
+    <h2 class="reveal">Demo projects</h2>
+    <p class="lead reveal">These are sample concepts made to show our design style. They are not real client websites.</p>
+    <div class="grid portfolio">
+      <article class="demo reveal">
+        <div class="thumb t1"><div class="bar"><i></i><i></i><i></i></div><small>Sample hotel</small><h4>Grand Stay<br>Hotel</h4></div>
+        <div class="demo-info"><span class="tag">Demo project</span><h3>Hotel website concept</h3><p>Room gallery, amenities, location map and a WhatsApp enquiry button.</p></div>
+      </article>
+      <article class="demo reveal">
+        <div class="thumb t2"><div class="bar"><i></i><i></i><i></i></div><small>Sample restaurant</small><h4>Spice Table<br>Kitchen</h4></div>
+        <div class="demo-info"><span class="tag">Demo project</span><h3>Restaurant website concept</h3><p>Menu with categories, opening hours and a one-tap call button.</p></div>
+      </article>
+      <article class="demo reveal">
+        <div class="thumb t3"><div class="bar"><i></i><i></i><i></i></div><small>Sample salon</small><h4>Glow Studio<br>Salon</h4></div>
+        <div class="demo-info"><span class="tag">Demo project</span><h3>Salon website concept</h3><p>Service list with prices, a gallery section and appointment request.</p></div>
+      </article>
+    </div>
+    <p class="note">Once real client work is completed with permission, it will be added here.</p>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="wrap">
+    <h2 class="reveal">Simple, affordable pricing</h2>
+    <p class="lead reveal">Starting prices for small businesses. The final price depends on the number of pages and features you need.</p>
+    <div class="grid pricing">
+      <article class="card plan reveal">
+        <h3>Landing Page</h3>
+        <div class="price"><small>from</small>&#8377;2,999</div>
+        <p>One focused page for an offer or a simple online presence.</p>
+        <ul><li>1 mobile-friendly page</li><li>WhatsApp and call buttons</li><li>Contact form</li><li>Free publishing help</li></ul>
+        <a class="btn btn-line" href="#contact">Ask about this plan</a>
+      </article>
+      <article class="card plan featured reveal">
+        <h3>Business Website</h3>
+        <div class="price"><small>from</small>&#8377;6,999</div>
+        <p>For shops, salons, restaurants and small businesses.</p>
+        <ul><li>Up to 5 pages</li><li>Gallery or menu section</li><li>Google Maps location</li><li>Basic search engine setup</li><li>Free publishing help</li></ul>
+        <a class="btn btn-gold" href="#contact">Ask about this plan</a>
+      </article>
+      <article class="card plan reveal">
+        <h3>Premium Website</h3>
+        <div class="price"><small>from</small>&#8377;12,999</div>
+        <p>For hotels and businesses that need more pages and features.</p>
+        <ul><li>Up to 10 pages</li><li>Room or service listings</li><li>Enquiry and booking form</li><li>Custom design details</li><li>Free publishing help</li></ul>
+        <a class="btn btn-line" href="#contact">Ask about this plan</a>
+      </article>
+    </div>
+    <p class="fine">These are suggested starting prices. Domain name and paid hosting, if you want them, are separate costs. Send us your requirements and we will give you a clear quote before any work begins.</p>
+  </div>
+</section>
+
+<section id="about" class="alt">
+  <div class="wrap about">
+    <div class="reveal">
+      <h2>About Singh Web Development</h2>
+      <p>Singh Web Development is a website design and development service for small businesses in India. We build clean, fast websites that look good on a phone and make it easy for customers to call, message or visit you.</p>
+      <p>We keep the process simple: you tell us about your business, we design the site, you review it, and we help you publish it.</p>
+    </div>
+    <div class="points">
+      <div class="point reveal"><h3>Mobile first</h3><p>Designed for Android phones first, then scaled up beautifully for computers.</p></div>
+      <div class="point reveal"><h3>Clear communication</h3><p>Plain language, a quote before we start, and no hidden charges.</p></div>
+      <div class="point reveal"><h3>Built for your customers</h3><p>Every page is focused on getting people to contact you.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <h2 class="reveal">Let's build your website</h2>
+    <p class="lead reveal">Message us on WhatsApp or call for a free quote. Tell us about your business and what you need.</p>
+    <div class="cta-row reveal">
+      <a class="btn btn-gold" id="waBtn" href="https://wa.me/YOUR_NUMBER_HERE?text=Hi%2C%20I%20want%20a%20website%20for%20my%20business." target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.300 1.200-1.800 1.200-.5.1-1 .2-3.200-.7-2.700-1.100-4.400-3.800-4.500-4-.1-.2-1.100-1.400-1.100-2.700s.7-1.900.9-2.200c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.500l.8 2c.1.200.1.300 0 .5l-.3.400-.4.500c-.1.100-.3.300-.1.600.2.300.8 1.300 1.700 2.100 1.100 1 2.100 1.300 2.400 1.500.3.100.5.100.6-.1l.9-1.100c.2-.3.400-.2.600-.1l2 1c.3.100.5.200.5.300.1.200.1.700-.1 1.300z"/></svg>WhatsApp us</a>
+      <a class="btn btn-line" href="tel:+YOUR_NUMBER_HERE"><svg viewBox="0 0 24 24"><path d="M6.600 10.800a15 15 0 0 0 6.600 6.600l2.200-2.200a1 1 0 0 1 1-.25 11.400 11.400 0 0 0 3.600.6 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.500a1 1 0 0 1 1 1c0 1.300.2 2.500.6 3.600a1 1 0 0 1-.25 1z"/></svg>Call now</a>
+    </div>
+    <form id="quote" class="reveal">
+      <label>Your name<input name="name" required autocomplete="name"></label>
+      <label>Type of business
+        <select name="type"><option>Hotel</option><option>Restaurant</option><option>Salon</option><option>Shop</option><option>Portfolio</option><option>Other</option></select>
+      </label>
+      <label>What do you need?<textarea name="msg" placeholder="Tell us a little about your business"></textarea></label>
+      <button class="btn btn-gold" type="submit" style="justify-content:center">Send on WhatsApp</button>
+      <p class="form-note">This opens WhatsApp with your message ready to send.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">&copy; <span id="yr"></span> Singh Web Development &middot; Website Designer &amp; Developer</div>
+</footer>
+
+<a class="fab" href="https://wa.me/YOUR_NUMBER_HERE" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.300 1.200-1.800 1.200-.5.1-1 .2-3.200-.7-2.700-1.100-4.400-3.800-4.500-4-.1-.2-1.100-1.400-1.100-2.700s.7-1.900.9-2.200c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.500l.8 2c.1.200.1.300 0 .5l-.3.400-.4.500c-.1.100-.3.300-.1.600.2.300.8 1.300 1.700 2.100 1.100 1 2.100 1.300 2.400 1.500.3.100.5.100.6-.1l.9-1.100c.2-.3.400-.2.600-.1l2 1c.3.100.5.200.5.300.1.200.1.700-.1 1.300z"/></svg></a>
+
+<script>
+(function(){
+  var h=document.querySelector("header"),m=document.getElementById("menu"),b=document.querySelector(".menu-btn");
+  window.addEventListener("scroll",function(){h.classList.toggle("scrolled",window.scrollY>10)},{passive:true});
+  b.addEventListener("click",function(){var o=m.classList.toggle("open");b.setAttribute("aria-expanded",o)});
+  m.addEventListener("click",function(e){if(e.target.tagName==="A"){m.classList.remove("open");b.setAttribute("aria-expanded","false")}});
+  document.getElementById("yr").textContent=new Date().getFullYear();
+  var els=document.querySelectorAll(".reveal");
+  if("IntersectionObserver" in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.12});
+    els.forEach(function(el){io.observe(el)});
+  }else{els.forEach(function(el){el.classList.add("in")})}
+  document.getElementById("quote").addEventListener("submit",function(e){
+    e.preventDefault();
+    var f=e.target,num=document.getElementById("waBtn").href.split("wa.me/")[1].split("?")[0];
+    var t="Hi, I am "+f.name.value+". I have a "+f.type.value+" business and need a website. "+f.msg.value;
+    window.open("https://wa.me/"+num+"?text="+encodeURIComponent(t),"_blank");
+  });
+})();
+</script>
+</body>
+</html>
